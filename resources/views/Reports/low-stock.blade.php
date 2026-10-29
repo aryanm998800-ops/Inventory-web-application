@@ -371,7 +371,6 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>SKU</th>
                         <th>Category</th>
                         <th>Unit</th>
                         <th>Current Stock</th>
@@ -387,8 +386,6 @@
                         <td>
                             <strong>{{ $product->name }}</strong>
                         </td>
-
-                        <td>{{ $product->sku }}</td>
 
                         <td>{{ $product->category?->name ?? 'Unassigned' }}</td>
 
@@ -414,7 +411,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="empty">
+                        <td colspan="7" class="empty">
                             <strong>All clear!</strong><br>
                             No active products are currently at or below their minimum-stock level.
                         </td>

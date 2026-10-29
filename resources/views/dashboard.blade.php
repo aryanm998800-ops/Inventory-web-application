@@ -683,7 +683,6 @@
                     <thead>
                         <tr>
                             <th>Product Name</th>
-                            <th>SKU</th>
                             <th>Current Stock</th>
                             <th>Reorder Level</th>
                             <th>Status</th>
@@ -700,7 +699,6 @@
                                     </a>
                                 </td>
 
-                                <td>{{ $item['sku'] }}</td>
                                 <td>{{ $item['stock'] }}</td>
                                 <td>{{ $item['reorder'] }}</td>
 
@@ -712,7 +710,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="empty">
+                                <td colspan="4" class="empty">
                                     Koi bhi product low stock mein nahi hai.
                                 </td>
                             </tr>

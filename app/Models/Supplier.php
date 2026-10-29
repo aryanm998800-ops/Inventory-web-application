@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model
 {
+    use HasUuid;
+
     protected $fillable = [
         'name',
         'company_name',

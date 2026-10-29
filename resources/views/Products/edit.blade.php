@@ -431,21 +431,6 @@
                 </div>
 
                 <div class="field">
-                    <label for="sku">SKU *</label>
-                    <input
-                        type="text"
-                        id="sku"
-                        name="sku"
-                        value="{{ old('sku', $product->sku) }}"
-                        maxlength="255"
-                        required
-                    >
-                    @error('sku')
-                        <div class="error-text">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="field">
                     <label for="barcode">Barcode</label>
                     <input
                         type="text"

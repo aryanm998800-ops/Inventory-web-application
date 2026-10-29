@@ -456,7 +456,7 @@
                                 value="{{ $product->id }}"
                                 @selected((string)request('product_id') === (string)$product->id)
                             >
-                                {{ $product->name }} ({{ $product->sku }})
+                                {{ $product->name }}
                             </option>
                         @endforeach
                     </select>
@@ -548,9 +548,6 @@
                             <strong>
                                 {{ $transaction->product?->name ?? 'Deleted product' }}
                             </strong>
-                            <div class="muted">
-                                {{ $transaction->product?->sku ?? '—' }}
-                            </div>
                         </td>
 
                         <td>

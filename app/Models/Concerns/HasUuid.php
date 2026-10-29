@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models\Concerns;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+trait HasUuid
+{
+    protected static function bootHasUuid(): void
+    {
+        static::creating(function (Model $model): void {
+            if (! $model->getAttribute('uuid')) {
+                $model->setAttribute('uuid', (string) Str::uuid());
+            }
+        });
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
+    }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        if ($field !== null && $field !== 'uuid') {
+            return parent::resolveRouteBinding($value, $field);
+        }
+
+        if (ctype_digit((string) $value)) {
+            return $this->newQuery()
+                ->whereKey($value)
+                ->first();
+        }
+
+        if (! Str::isUuid((string) $value)) {
+            return null;
+        }
+
+        return $this->newQuery()
+            ->where('uuid', $value)
+            ->first();
+    }
+}

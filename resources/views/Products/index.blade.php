@@ -472,7 +472,6 @@
                     <tr>
                         <th>#</th>
                         <th>Product</th>
-                        <th>SKU</th>
                         <th>Category</th>
                         <th>Purchase Price</th>
                         <th>Sale Price</th>
@@ -495,10 +494,6 @@
                                 <div class="subtitle" style="margin-top: 5px;">
                                     Barcode: {{ $product->barcode ?: '—' }}
                                 </div>
-                            </td>
-
-                            <td>
-                                {{ $product->sku ?: '—' }}
                             </td>
 
                             <td>
@@ -559,7 +554,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="9">
+                            <td colspan="8">
                                 <div class="empty">
                                     <strong>No products found.</strong>
                                     <p>Add your first product to get started.</p>

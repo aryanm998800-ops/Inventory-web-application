@@ -242,7 +242,6 @@ class DashboardController extends Controller
             ->take(5)
             ->map(fn ($product) => [
                 'name' => $product->name,
-                'sku' => $product->sku ?? '-',
                 'stock' => $product->available_stock,
                 'reorder' => (int) $product->minimum_stock,
                 'out' => $product->available_stock <= 0,
@@ -250,7 +249,7 @@ class DashboardController extends Controller
             ])
             ->values();
 
-        $activities = StockTransaction::with('product:id,name,sku')
+        $activities = StockTransaction::with('product:id,name')
             ->latest()
             ->take(5)
             ->get()
@@ -259,10 +258,7 @@ class DashboardController extends Controller
                 'title' => $transaction->type === 'in'
                     ? 'Stock In'
                     : 'Stock Out',
-                'desc' => ($transaction->product?->name ?? 'Deleted product')
-                    . ($transaction->product?->sku
-                        ? " ({$transaction->product->sku})"
-                        : ''),
+                'desc' => $transaction->product?->name ?? 'Deleted product',
                 'amount' => ($transaction->type === 'in' ? '+' : '-')
                     . number_format($transaction->quantity)
                     . ' Units',

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
@@ -45,6 +45,7 @@ class CategoryController extends Controller
                     'message' => 'Category already exists.',
                     'category' => [
                         'id' => $existingCategory->id,
+                        'uuid' => $existingCategory->uuid,
                         'name' => $existingCategory->name,
                     ],
                     'already_exists' => true,
@@ -60,6 +61,7 @@ class CategoryController extends Controller
                 'message' => 'Category created successfully.',
                 'category' => [
                     'id' => $category->id,
+                    'uuid' => $category->uuid,
                     'name' => $category->name,
                 ],
                 'already_exists' => false,

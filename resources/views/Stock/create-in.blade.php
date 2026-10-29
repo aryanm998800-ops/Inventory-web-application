@@ -390,7 +390,7 @@
                                 value="{{ $product->id }}"
                                 @selected(old('product_id') == $product->id)
                             >
-                                {{ $product->name }} — {{ $product->sku }}
+                                {{ $product->name }}
                             </option>
                         @endforeach
                     </select>

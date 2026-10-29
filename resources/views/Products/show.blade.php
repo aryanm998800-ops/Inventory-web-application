@@ -418,9 +418,6 @@
             <div class="product-heading">
                 <div>
                     <h2>{{ $product->name }}</h2>
-                    <div class="subtitle" style="margin-top: 6px;">
-                        SKU: {{ $product->sku }}
-                    </div>
                 </div>
             </div>
 
@@ -443,11 +440,6 @@
                 <div class="detail-value">
                     {{ $product->category?->name ?? '—' }}
                 </div>
-            </div>
-
-            <div class="detail">
-                <div class="detail-label">SKU</div>
-                <div class="detail-value">{{ $product->sku }}</div>
             </div>
 
             <div class="detail">

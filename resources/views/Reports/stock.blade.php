@@ -357,7 +357,6 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>SKU</th>
                         <th>Category</th>
                         <th>Unit</th>
                         <th>Purchase Price</th>
@@ -373,8 +372,6 @@
                         <td>
                             <strong>{{ $product->name }}</strong>
                         </td>
-
-                        <td>{{ $product->sku }}</td>
 
                         <td>{{ $product->category?->name ?? 'Unassigned' }}</td>
 
@@ -404,7 +401,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="empty">
+                        <td colspan="7" class="empty">
                             No products found.
                         </td>
                     </tr>

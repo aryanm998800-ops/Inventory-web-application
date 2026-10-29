@@ -404,7 +404,6 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>SKU</th>
                         <th>Category</th>
                         <th class="numeric">Purchase Price</th>
                         <th class="numeric">Current Quantity</th>
@@ -418,8 +417,6 @@
                         <td>
                             <strong>{{ $product->name }}</strong>
                         </td>
-
-                        <td>{{ $product->sku }}</td>
 
                         <td>
                             {{ $product->category?->name ?? 'Unassigned' }}
@@ -441,7 +438,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="empty">
+                        <td colspan="5" class="empty">
                             No products found.
                         </td>
                     </tr>
@@ -450,7 +447,7 @@
 
                 <tfoot>
                     <tr>
-                        <td colspan="5">Current Page Total</td>
+                        <td colspan="4">Current Page Total</td>
 
                         <td class="numeric">
                             Rs. {{ number_format($products->getCollection()->sum('stock_value'), 2) }}

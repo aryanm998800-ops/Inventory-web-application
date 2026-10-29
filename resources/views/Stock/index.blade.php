@@ -438,7 +438,6 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>SKU</th>
                         <th>Category</th>
                         <th>Available Quantity</th>
                         <th>Minimum Stock</th>
@@ -452,8 +451,6 @@
                             <td>
                                 <strong>{{ $product->name }}</strong>
                             </td>
-
-                            <td>{{ $product->sku }}</td>
 
                             <td>{{ $product->category?->name ?? '—' }}</td>
 
@@ -476,7 +473,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="empty" style="text-align:center;padding:30px;">
+                            <td colspan="5" class="empty" style="text-align:center;padding:30px;">
                                 No active products found. Add products first.
                             </td>
                         </tr>

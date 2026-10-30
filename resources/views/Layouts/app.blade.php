@@ -1,3 +1,4 @@
+
 @php
     $company = config('app.name', 'XYRA');
     $userName = auth()->user()->name ?? 'User';
@@ -333,6 +334,12 @@
             color: #fff;
         }
 
+        /* Logout button beside Admin */
+        .logout-trigger {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -577,6 +584,12 @@
 
             .user { margin-left: auto; }
             .user span { display: none; }
+
+            .logout-trigger {
+                padding: 9px 11px;
+                font-size: 12px;
+            }
+
             .card { padding: 17px; }
             .page-title { font-size: 21px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
@@ -719,6 +732,14 @@
                 <div class="avatar">{{ strtoupper(substr($userName, 0, 1)) }}</div>
                 <span>{{ $userName }}</span>
             </div>
+
+            {{-- Logout button beside Admin --}}
+            <button type="button"
+                    class="btn btn-secondary logout-trigger"
+                    data-logout-confirm>
+                {!! $ic('logout', 16) !!}
+                Logout
+            </button>
         </header>
 
         @if (session('success'))
